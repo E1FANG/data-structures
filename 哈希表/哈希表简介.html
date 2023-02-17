@@ -1,0 +1,39 @@
+<span>
+  数据结构是组织和存储数据的一种方式。
+
+  数据通常是对现实世界的一种抽象，那么现实世界的物体无穷无尽，如何在有限的空间中存储无限的物体？这就需要映射了，用有限的集合去映射无限的集合，哈希表就是这样去组织和存储数据的。
+
+  哈希表，简单来说就是键值对，用key去映射value，实现高效的对元素的查找。输入key去查找并获取value，时间复杂度为O(1)
+</span>
+
+<script>
+  // 在js中，对象就是哈希表，属性名称就是哈希表的key，属性的值就是哈希表的value。
+
+  // 也带有哈希表的常规操作，初始话、查询、增删键值对、遍历哈希表
+
+  // 我们很多时候可以通过反射去动态操作对象
+
+  // init
+  const map = {}
+
+  // add
+  map.first = 'hi'
+  Reflect.set(map, 'first', 'hi reflect')
+
+  // delete 
+  delete map.first
+  Reflect.deleteProperty(map, 'first')
+
+  // 遍历
+  Object.keys(map).forEach(e => console.log(map[e]))
+
+  Reflect.ownKeys(map).forEach(e => console.log(map[e]))
+
+  for (const [key, value] of Object.entries(map)) {
+    console.log(key, value)
+  }
+
+
+
+
+</script>

@@ -1,0 +1,39 @@
+<script>
+  /*
+  数组概念：相同类型元素存储在连续内存空间的数据结构
+     数组的特征：
+     1. 固定的长度
+     2. 固定的内存存放排列
+     3. 在数组中访问元素快速高效
+     4. 插入删除元素效率低下
+  */
+
+
+  //  数组的查找,直接通过下标，高效
+  const arr = new Array(5).fill(0)
+  console.log(arr[4])
+
+  // 数组的插入  把index之后的元素向后移动一位
+  // 由于数组的长度是固定的，所以会丢失最后一项的数据
+  // 丢失的最后一项数据依然在内存中，造成内存浪费
+  function insert(arr, index, item) {
+    for (let i = arr.length - 1; i > index; i--) {
+      arr[i] = arr[i - 1]
+    }
+    arr[index] = item
+  }
+
+  // 数组的删除，把index之后的向前移动一位
+  function _delete(arr, index) {
+    for (let i = index; i < arr.length; i++) {
+      arr[i] = arr[i + 1]
+    }
+  }
+  function remove(nums, index) {
+    // 把索引 index 之后的所有元素向前移动一位
+    for (let i = index; i < nums.length - 1; i++) {
+      nums[i] = nums[i + 1];
+    }
+  }
+
+</script>
