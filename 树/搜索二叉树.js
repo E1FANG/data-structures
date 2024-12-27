@@ -56,20 +56,16 @@ class SearchBinaryTree {
     let cur = this.root
     let pre
     while (cur.val) {
-      if (cur.val > val) {
-        pre = cur
-        cur = cur.left
-      }
-      if (cur.val < val) {
-        pre = cur
-        cur = cur.right
-      }
       if (cur.val === val) {
         break
       }
+      pre = cur
+      if (cur.val > val) cur = cur.left
+      if (cur.val < val) cur = cur.right
     }
     // 判断节点度数
     // 0 || 1
+    // 操作的是节点
     if (!cur.left || !cur.right) {
       const child = cur.left === null ? cur.right : cur.left
       if (cur === this.root) {
@@ -84,6 +80,7 @@ class SearchBinaryTree {
       }
     }
     // 2
+    // 操作的是值
     if (cur.left && cur.right) {
       // 找到右树中的最小左节点
       const tmp = findMin(cur.right)
@@ -96,10 +93,11 @@ class SearchBinaryTree {
 }
 
 const findMin = (node) => {
-  if (node.left) {
-    return findMin(node.left)
+  let _node = node
+  while (_node.left) {
+    _node = _node.left
   }
-  return node
+  return _node
 }
 
 const sbt = new SearchBinaryTree()
