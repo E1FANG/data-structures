@@ -12,6 +12,15 @@ class SearchBinaryTree {
   constructor() {
     this.root = null
   }
+  search(val) {
+    let cur = this.root
+    while (cur.val !== val) {
+      if (val > cur.val) cur = cur.right
+      if (val < cur.val) cur = cur.left
+    }
+    return cur
+  }
+
   // 二分，根据搜索二叉树的结构特性找到 null 的地方插入。
   insert(val) {
     const newNode = new TreeNode(val)
@@ -141,3 +150,6 @@ sbt.remove(20)
 const levelRes2 = levelOrder(sbt.root)
 
 console.log('层序', levelRes2)
+
+const node26 = sbt.search(26)
+console.log({ node26 })
